@@ -29,7 +29,7 @@ namespace PallidaOrientationExam.Controllers
             // HMZ-140 or any part of the license plate (like MZ-1)
             if (Request.Query.Count == 0)
             {
-                return BadRequest("Nothing is searched for.");
+                return BadRequest("No search criteria specified.");
             }
             else if (Request.Query.ContainsKey("police"))
             {
@@ -38,6 +38,17 @@ namespace PallidaOrientationExam.Controllers
             else if (Request.Query.ContainsKey("diplomat"))
             {
                 return Json(pallidaOrientationExamService.SearchResultsDiplomat());
+            }
+            else if (Request.Query.ContainsKey("q"))
+            {
+                try
+                {
+                    return Json(pallidaOrientationExamService.SearchNormalCarsByPlate(Request.Query["q"]));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }                
             }
 
             return NotFound();
