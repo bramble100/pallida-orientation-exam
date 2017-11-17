@@ -6,20 +6,20 @@
 @if (!String.IsNullOrEmpty(Model.ErrorMessage))
 {
     <div>
-        <em>@Model.ErrorMessage</em>
+        <em style="color:red">@Model.ErrorMessage</em>
     </div>
 }
 <h2>Search Form</h2>
 <div>
     <form action="search" method="get">
         <label for="licenseplate">License Plate</label>
-        <input id="licenseplate" placeholder="e.g. HMZ-140 or any part of the license plate (like MZ-1)" />
-        <input type="submit" />
+        <input id="licenseplate" name="q" placeholder="e.g. HMZ-140 or any part of the license plate (like MZ-1)" />
+        <input type="submit" value="Search" />
     </form>
 </div>
 <div>
-    <a href="/search/police">Police cars only</a>
-    <a href="/search/diplomat">Diplomats only</a>
+    <a href="/search?police=1">Police cars only</a>
+    <a href="/search?diplomat=1">Diplomats only</a>
 </div>
 <h2>Search Results</h2>
 
