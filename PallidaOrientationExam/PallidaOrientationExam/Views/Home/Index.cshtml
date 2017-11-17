@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model PallidaOrientationExam.ViewModels.SearchResult
+
+@if (!String.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div>
+        <em>@Model.ErrorMessage</em>
+    </div>
+}
+<h2>Search Form</h2>
+<div>
+    <form action="search" method="get">
+        <label for="licenseplate">License Plate</label>
+        <input id="licenseplate" placeholder="e.g. HMZ-140 or any part of the license plate (like MZ-1)" />
+        <input type="submit" />
+    </form>
+</div>
+<div>
+    <a href="/search/police">Police cars only</a>
+    <a href="/search/diplomat">Diplomats only</a>
+</div>
+<h2>Search Results</h2>
+
+<div>
+    <table>
+        <caption>Search Results</caption>
+        <thead>
+            <tr>
+                <th>Plate</th>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>Model</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        @foreach (var car in Model.LicensePlates)
+            {
+            <tr>
+                <td>@car.Plate</td>
+                <td><a href="/search/@car.Brand">@car.Brand</a></td>
+                <td>@car.Color</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+            </tr>
+        }
+    </table>
+</div>
+
