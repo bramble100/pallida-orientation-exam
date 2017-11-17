@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PallidaOrientationExam.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace PallidaOrientationExam
 {
@@ -17,6 +19,17 @@ namespace PallidaOrientationExam
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            var connectionString =
+                @"Data Source = (localdb)\ProjectsV13;" +
+                "Initial Catalog = PallidaOrientationExam;" +
+                "Integrated Security = True;" +
+                "Connect Timeout = 30;" +
+                "Encrypt = False;" +
+                "TrustServerCertificate = True;" +
+                "ApplicationIntent = ReadWrite;" +
+                "MultiSubnetFailover = False";
+
+            services.AddDbContext<PallidaOrientationExamContext>(options => options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
