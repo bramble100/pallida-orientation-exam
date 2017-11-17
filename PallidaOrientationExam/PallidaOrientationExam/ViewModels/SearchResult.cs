@@ -7,5 +7,11 @@ namespace PallidaOrientationExam.ViewModels
     {
         public List<LicensePlate> LicensePlates { get; set; }
         public string ErrorMessage { get; set; }
+
+        public SearchResult()
+        {
+            LicensePlates = new List<LicensePlate>();
+            ErrorMessage = string.Empty;
+        }
     }
 }
