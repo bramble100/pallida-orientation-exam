@@ -1,8 +1,30 @@
 ﻿@{
     Layout = "_Layout";
-}    <h2>Normal Search Results</h2>
-    <div>
-        <table>
+}
+@model List<PallidaOrientationExam.Models.LicensePlate>
 
-        </table>
-    </div>
+<h2>Normal Search Results</h2>
+<div>
+    <table>
+        <caption>Search Results</caption>
+        <thead>
+            <tr>
+                <th>Plate</th>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>Model</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        @foreach (var car in Model)
+            {
+            <tr>
+                <td>@car.Plate</td>
+                <td><a href="/search/@car.Brand">@car.Brand</a></td>
+                <td>@car.Color</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+            </tr>
+        }
+    </table>
+</div>
