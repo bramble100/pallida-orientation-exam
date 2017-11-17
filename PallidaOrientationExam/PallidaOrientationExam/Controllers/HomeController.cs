@@ -20,22 +20,22 @@ namespace PallidaOrientationExam.Controllers
         }
 
         [HttpGet]
-        [Route("search/{searchString}")]
+        [Route("search/{searchString?}")]
         public IActionResult SearchResultsNormal(string searchString)
         {
             return View();
         }
 
         [HttpGet]
-        [Route("search/police/{searchString}")]
-        public IActionResult SearchResultsPolice(string searchString)
+        [Route("/search/police")]
+        public IActionResult SearchResultsPolice()
         {
             return View();
         }
 
         [HttpGet]
-        [Route("search/diplomat/{searchString}")]
-        public IActionResult SearchResultsDiplomat(string searchString)
+        [Route("/search/diplomat")]
+        public IActionResult SearchResultsDiplomat()
         {
             return View();
         }
