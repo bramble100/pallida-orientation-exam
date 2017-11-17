@@ -13,9 +13,10 @@ namespace PallidaOrientationExam.Controllers
     {
 
         [HttpGet]
-        public IActionResult SearchForm()
+        public IActionResult SearchForm(string searchString)
         {
-            return View();
+            // HMZ-140 or any part of the license plate (like MZ-1)
+            return View(searchString);
         }
 
         [HttpGet]

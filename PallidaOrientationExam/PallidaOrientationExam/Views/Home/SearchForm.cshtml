@@ -1,0 +1,18 @@
+﻿@model string
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pallida Orientation Exam</title>
+</head>
+<body>
+    <h1>Pallida Orientation Exam</h1>
+    <h2>Search Form</h2>
+    <div>
+        <form action="/search" method="get">
+            <label for="licenseplate">License Plate</label>
+            <input id="licenseplate" placeholder="e.g. HMZ-140 or any part of the license plate (like MZ-1)" value="@Model"/>
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+</html>
