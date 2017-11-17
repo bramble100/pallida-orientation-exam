@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PallidaOrientationExam.Entities;
 using Microsoft.EntityFrameworkCore;
+
+using PallidaOrientationExam.Entities;
+using PallidaOrientationExam.Repositories;
+using PallidaOrientationExam.Services;
 
 namespace PallidaOrientationExam
 {
@@ -30,6 +33,8 @@ namespace PallidaOrientationExam
                 "MultiSubnetFailover = False";
 
             services.AddDbContext<PallidaOrientationExamContext>(options => options.UseSqlServer(connectionString));
+            services.AddScoped<PallidaOrientationExamRepository>();
+            services.AddScoped<PallidaOrientationExamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
