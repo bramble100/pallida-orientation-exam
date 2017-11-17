@@ -32,5 +32,14 @@ namespace PallidaOrientationExam.Services
 
         public static bool IsValidLIcensePlateCharacter(char character) 
             => (Char.IsLetterOrDigit(character) || character.Equals('-'));
+
+        public List<LicensePlate> SearchResultsPolice()
+            => pallidaOrientationExamRepository.SearchResultsPolice();
+
+        public List<LicensePlate> SearchResultsDiplomat()
+            => pallidaOrientationExamRepository.SearchResultsDiplomat();
+
+        public List<LicensePlate> SearchResultsBrand(string brand)
+            => pallidaOrientationExamRepository.SearchResultsBrand(brand);
     }
 }
