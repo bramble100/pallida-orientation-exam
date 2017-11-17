@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PallidaOrientationExam.Models
 {
-    public class LicensePlates
+    public class LicensePlate
     {
         [Key]
         [MaxLength(50)]
